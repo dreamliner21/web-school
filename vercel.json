@@ -1,16 +1,11 @@
 {
-  "version": 2,
-  "name": "testimonials-with-animations",
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/auth", "destination": "/auth.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "redirects": [
+    { "source": "/index.html", "destination": "/home", "permanent": true },
+    { "source": "/auth.html", "destination": "/auth", "permanent": true }
   ]
 }
