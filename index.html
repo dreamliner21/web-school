@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Modern School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+@tailwind components;
+@tailwind utilities;
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slideUp {
+    animation: slideUp 1s ease-out;
+}
+
+/* Animasi Fade-In */
+@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Animasi Bounce-In */
+    @keyframes bounceIn {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        60% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Kelas Animasi */
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    .animate-bounceIn {
+        animation: bounceIn 1s ease-out;
+    }
+
+    #footer-text {
+    white-space: nowrap;
+    overflow: hidden;
+    /* border-right: .15em solid orange; Simulate caret */
+    animation: typing 3.5s steps(40, end);
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = "auth.html";
+            }
+
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = "auth.html";
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('welcomeText').addEventListener('click', function() {
+            var video = document.getElementById('bgVideo');
+            var section = document.getElementById('videoSection');
+            
+            // Hide the background image and show the video
+            section.style.backgroundImage = 'none';
+            video.classList.remove('hidden');
+            video.play();
+        });
+    });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const footerText = document.getElementById('footer-text');
+    footerText.addEventListener("animationend", function() {
+        footerText.style.borderRight = "none";
+    });
+});
+    </script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Navbar -->
+<nav class="bg-blue-600 text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-2">
+            <img src="https://j.top4top.io/p_3248fw0fz1.jpg" alt="Modern School Logo" class="h-10 w-10">
+            <h1 class="text-xl font-bold">Modern School</h1>
+        </div>
+        <!-- Hamburger Icon -->
+        <button id="hamburger" class="md:hidden text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <!-- Desktop Menu -->
+        <div id="nav-links" class="hidden md:flex space-x-4">
+            <a href="#about" class="hover:text-gray-200">About</a>
+            <a href="#programs" class="hover:text-gray-200">Programs</a>
+            <a href="#testimonials" class="hover:text-gray-200">Testimonials</a>
+            <a href="#contact" class="hover:text-gray-200">Contact</a>
+            <button onclick="logout()" class="bg-white text-blue-600 py-2 px-4 rounded-lg hover:bg-gray-200 transition">Logout</button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-500">
+        <a href="#about" class="block text-white py-2 px-4 hover:bg-blue-700">About</a>
+        <a href="#programs" class="block text-white py-2 px-4 hover:bg-blue-700">Programs</a>
+        <a href="#testimonials" class="block text-white py-2 px-4 hover:bg-blue-700">Testimonials</a>
+        <a href="#contact" class="block text-white py-2 px-4 hover:bg-blue-700">Contact</a>
+        <button onclick="logout()" class="block w-full bg-white text-blue-600 py-2 px-4 hover:bg-gray-200 transition">Logout</button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="videoSection" class="relative h-96" style="background-image: url('https://h.top4top.io/p_3250mnnj71.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+        <!-- Background Video (Initially Hidden) -->
+        <video id="bgVideo" class="absolute inset-0 w-full h-full object-cover hidden" muted>
+            <source src="assets/videos/bgvid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Overlay and Text -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <h2 id="welcomeText" class="text-white text-4xl font-bold text-center cursor-pointer">Welcome to Modern School</h2>
+        </div>
+    </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">About Us</h2>
+                <p class="text-gray-700 text-lg text-center mb-8">
+                    Modern School berdiri sejak tahun 1990 dengan visi memberikan pendidikan berkualitas tinggi berbasis teknologi dan inovasi.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left Column -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Sejarah Singkat</h3>
+                        <p class="text-gray-700 mb-4">Sejak didirikan, Modern School telah menjadi pelopor dalam mengintegrasikan teknologi modern dalam proses belajar mengajar.</p>
+                        <ul class="list-disc ml-6 text-gray-700">
+                            <li>Total tenaga pengajar aktif: <strong>45 orang</strong></li>
+                            <li>Tenaga pengajar yang telah pensiun: <strong>20 orang</strong></li>
+                            <li>Jumlah siswa yang telah diluluskan: <strong>12,500</strong></li>
+                            <li>Jumlah siswa aktif saat ini: <strong>1,200</strong></li>
+                        </ul>
+                    </div>
+                    <!-- Right Column -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Prestasi Sekolah</h3>
+                        <ul class="list-disc ml-6 text-gray-700 mb-4">
+                            <li>Juara Olimpiade Sains Nasional 5 tahun berturut-turut</li>
+                            <li>Tim olahraga menjadi juara pada 10 kompetisi regional</li>
+                            <li>Akreditasi Sekolah: <strong>A+</strong></li>
+                        </ul>
+                        <h3 class="text-2xl font-bold text-blue-600 mb-4">Ekstrakurikuler</h3>
+                        <p class="text-gray-700">Beragam kegiatan ekstrakurikuler seperti:</p>
+                        <ul class="list-disc ml-6 text-gray-700">
+                            <li>Robotics Club</li>
+                            <li>Basketball Team</li>
+                            <li>Drama & Theatre</li>
+                            <li>Photography Club</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-blue-600 text-center mb-4">Kata Pengantar</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-6 bg-white shadow-md rounded-lg">
+                            <h4 class="text-xl font-bold text-blue-600 mb-2">Ketua Komite Sekolah</h4>
+                            <p class="text-gray-700 italic">"Kami berkomitmen mendukung Modern School dalam memberikan pendidikan terbaik untuk generasi masa depan."</p>
+                            <p class="mt-4 text-right font-bold">- Bapak Johan Santoso</p>
+                        </div>
+                        <div class="p-6 bg-white shadow-md rounded-lg">
+                            <h4 class="text-xl font-bold text-blue-600 mb-2">Kepala Sekolah</h4>
+                            <p class="text-gray-700 italic">"Dengan bangga, kami menyambut siswa-siswa terbaik untuk belajar dan tumbuh di Modern School."</p>
+                            <p class="mt-4 text-right font-bold">- Ibu Maria Dewi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Our Programs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">Science Program</h3>
+                    <p class="text-gray-700">Explore the world of science with hands-on experiments and expert guidance.</p>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">Arts & Creativity</h3>
+                    <p class="text-gray-700">Develop your creative skills in our modern art studios.</p>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">Technology & Innovation</h3>
+                    <p class="text-gray-700">Learn cutting-edge technologies to prepare for the future.</p>
+                </div>
+                <!-- Ekstrakurikuler -->
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">Extracurricular Activities</h3>
+                    <ul class="text-gray-700 list-disc list-inside">
+                        <li>Basket</li>
+                        <li>Seni Tari</li>
+                        <li>Musik</li>
+                        <li>Paduan Suara</li>
+                        <li>Pramuka</li>
+                        <li>Coding Club</li>
+                        <li>Jurnalistik</li>
+                        <li>Robotika</li>
+                        <li>Bahasa Asing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-600 mb-8 animate-fadeIn">What Our Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_3248cj9dg1.jpg" alt="Foto Sarah" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Modern School bener-bener ngubah hidup aku. Program-programnya keren banget dan gurunya suportif!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sarah, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 2 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://h.top4top.io/p_3248flmin1.jpg" alt="Foto Sophia" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Aku suka banget sama workshop kreatifnya. Aku jadi nemu bakat seni yang selama ini nggak aku sadari!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sophia, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 3 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://e.top4top.io/p_32488asbi1.jpg" alt="Foto Emma" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Program teknologinya keren banget! Aku jadi belajar banyak soal coding dan robotik."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Emma, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 4 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://f.top4top.io/p_324872epu1.jpg" alt="Foto Isabella" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Masuk Modern School adalah keputusan terbaik. Lingkungannya ramah banget!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Isabella, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                <!-- Testimoni 5 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://d.top4top.io/p_3248dw4j21.jpg" alt="Foto Mia" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Aku jadi lebih percaya diri soal masa depan berkat bimbingan yang luar biasa di sini!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Mia, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 6 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://b.top4top.io/p_32486xvju1.jpg" alt="Foto Olivia" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Program seni di sini luar biasa. Aku jadi lebih termotivasi buat berkarya."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Olivia, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 7 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://c.top4top.io/p_3248blf0g1.jpg" alt="Foto Ella" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Gurunya ramah banget dan selalu siap membantu. Aku suka sekolah ini!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Ella, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                <!-- Testimoni 8 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://a.top4top.io/p_32481jp0n1.jpg" alt="Foto Lily" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Aku nggak pernah nyangka belajar bisa seseru ini. Terima kasih, Modern School!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Lily, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                <!-- Testimoni 9 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://l.top4top.io/p_32486t2231.jpg" alt="Foto Hannah" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Perpustakaannya terlalu kecil dan nggak nyaman buat belajar."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Hannah, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★☆☆☆
+                    </div>
+                </div>
+                <!-- Testimoni 10 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://k.top4top.io/p_32480oxsb1.jpg" alt="Foto Amelia" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kegiatan ekstrakurikulernya kurang banyak. Semoga ke depannya lebih beragam."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Amelia, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★☆☆
+                    </div>
+                </div>
+                <!-- Testimoni 11 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://j.top4top.io/p_3248x3d0x1.jpg" alt="Foto Grace" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Makanan di kantinnya nggak enak dan menunya itu-itu aja."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Grace, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★☆☆☆
+                    </div>
+                </div>
+                <!-- Testimoni 12 -->
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_3248jlrpl1.jpg" alt="Foto Zara" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Jujur aja, sekolah ini parah. Gurunya nggak berguna dan lingkungannya toksik. Aku nyesel daftar di sini."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Zara, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★☆☆☆☆
+                    </div>
+                </div>  
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://c.top4top.io/p_3249mvnz71.jpg" alt="Foto Testimoni 13" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya sangat senang belajar di sekolah ini karena fasilitasnya lengkap."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Rina, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://a.top4top.io/p_3249wyy6d1.jpg" alt="Foto Testimoni 14" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Berkat guru-guru di sini, nilai saya meningkat secara signifikan."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Maya, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://k.top4top.io/p_32499tugx1.jpg" alt="Foto Testimoni 15" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Pengalaman belajar yang luar biasa, sangat menyenangkan!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Fina, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://h.top4top.io/p_3249rtd1k1.jpg" alt="Foto Testimoni 16" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Lingkungan sekolah ini sangat mendukung untuk belajar."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sinta, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_32499ascx1.jpg" alt="Foto Testimoni 17" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya mendapat banyak teman baru di sini, suasananya ramah."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Lala, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://l.top4top.io/p_3249ymabr1.jpg" alt="Foto Testimoni 18" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kurikulum di sekolah ini sangat membantu perkembangan saya."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sari, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://g.top4top.io/p_3249ya0dg1.jpg" alt="Foto Testimoni 19" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya merasa termotivasi untuk belajar lebih giat setiap hari."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Dina, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://f.top4top.io/p_3249qrea01.jpg" alt="Foto Testimoni 20" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Sarana olahraga di sekolah ini luar biasa, saya sangat suka."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Tania, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://e.top4top.io/p_32491w9u91.jpg" alt="Foto Testimoni 21" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Guru-gurunya sangat mendukung saya untuk berkembang."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Risa, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://d.top4top.io/p_3249g3gvr1.jpg" alt="Foto Testimoni 22" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Sekolah ini memberikan kesempatan banyak untuk berkarya."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Vivi, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://c.top4top.io/p_3249nur001.jpg" alt="Foto Testimoni 23" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Pelayanan di sini sangat baik, membuat saya betah."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Bella, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://b.top4top.io/p_3249e7a4x1.jpg" alt="Foto Testimoni 24" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya belajar untuk disiplin dan bertanggung jawab."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Elsa, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://a.top4top.io/p_3249hkjrd1.jpg" alt="Foto Testimoni 25" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya merasa lebih percaya diri setiap harinya."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Putri, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://l.top4top.io/p_324962oqk1.jpg" alt="Foto Testimoni 26" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Sekolah ini memiliki banyak kegiatan ekstrakurikuler yang menyenangkan."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Yani, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://k.top4top.io/p_32492osc71.jpg" alt="Foto Testimoni 27" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Fasilitas olahraga yang lengkap membantu saya untuk tetap aktif."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Indah, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★★</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://j.top4top.io/p_3249ge5au1.jpg" alt="Foto Testimoni 28" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya mendapatkan banyak pengalaman yang berguna untuk masa depan."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Tita, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">★★★★☆</div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_3249y5k2g1.jpg" alt="testimoni 29" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Pemandangan di kelas sangat menyenangkan, saya suka belajar di sini."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Liana, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://g.top4top.io/p_3249b2izm1.jpg" alt="testimoni 30" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Pelajaran di sekolah ini kadang membosankan, tapi guru-gurunya baik."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sarah, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★☆☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://h.top4top.io/p_3249sluxc1.jpg" alt="testimoni 31" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Tempatnya nyaman, tapi fasilitas olahraga perlu diperbaiki."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Bella, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★☆☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://e.top4top.io/p_32499uj5k1.jpg" alt="testimoni 32" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kantin enak, tapi harganya agak mahal untuk ukuran pelajar."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Nadya, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://f.top4top.io/p_3249bv6sr1.jpg" alt="testimoni 33" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Sekolah ini penuh dengan kegiatan ekstrakurikuler yang menyenangkan!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Arianna, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://d.top4top.io/p_3249isb8v1.jpg" alt="testimoni 34" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Tempat belajar yang cukup tenang, hanya saja wifi sering mati."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Tika, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★☆☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://c.top4top.io/p_3249y8ig01.jpg" alt="testimoni 35" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Banyak pilihan ekstra, tapi beberapa harus diikuti dengan biaya tambahan."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Nina, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★☆☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://a.top4top.io/p_3249t2y651.jpg" alt="testimoni 36" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kebersihan di sekitar sekolah perlu lebih diperhatikan."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Sonia, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★☆☆☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_3249ge4ee1.jpg" alt="testimoni 37" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya suka dengan fasilitas laboratorium komputer yang lengkap di sini."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Natalia, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://k.top4top.io/p_3249cgfs71.jpg" alt="testimoni 38" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Banyak tugas yang harus diselesaikan dalam waktu singkat, cukup menantang!"</p>
+                            <p class="mt-4 font-bold text-blue-600">- Amira, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://b.top4top.io/p_3249co5lb1.jpg" alt="testimoni 39" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Guru-guru sangat mendukung perkembangan siswa baik secara akademik maupun non-akademik."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Vina, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://g.top4top.io/p_3249nfnb91.jpg" alt="testimoni 40" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Sekolah ini punya suasana belajar yang asyik dan banyak teman baik."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Karina, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://e.top4top.io/p_3249pdpcw1.jpg" alt="testimoni 41" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Ruang perpustakaannya sangat nyaman untuk belajar atau sekadar membaca buku."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Rina, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://f.top4top.io/p_3249zte721.jpg" alt="testimoni 42" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kegiatan ekstrakurikulernya sangat bervariasi, saya sangat menikmati drama teater."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Marissa, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://i.top4top.io/p_3249qjujf1.jpg" alt="testimoni 43" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Pelajaran di sini sangat terstruktur, namun kadang terasa terlalu padat."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Nadia, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://f.top4top.io/p_3249qpi1q1.jpg" alt="testimoni 44" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Fasilitas olahraganya cukup baik, saya senang mengikuti pelajaran olahraga."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Elvira, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★☆
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://b.top4top.io/p_3249613541.jpg" alt="testimoni 45" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Guru les tambahan di sini sangat membantu, terutama dalam persiapan ujian."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Siska, Kelas 12</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://j.top4top.io/p_3249cikop1.jpg" alt="testimoni 46" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya sangat suka dengan lingkungan sekolah ini, semuanya terasa ramah dan mendukung."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Carla, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://d.top4top.io/p_3249iwjb71.jpg" alt="testimoni 47" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Saya merasa senang dengan program pengembangan bakat yang ada di sini."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Selly, Kelas 11</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>
+                
+                <div class="bg-white shadow-md rounded-lg p-6 flex flex-col items-start space-y-4 animate-bounceIn">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://h.top4top.io/p_3249xzbbw1.jpg" alt="testimoni 48" class="w-20 h-20 rounded-full">
+                        <div>
+                            <p class="text-gray-700 italic">"Kantin favorit saya ada banyak pilihan makanan sehat, sangat cocok untuk kami."</p>
+                            <p class="mt-4 font-bold text-blue-600">- Vania, Kelas 10</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400">
+                        ★★★★★
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>    
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-600 mb-8 animate-fadeIn">Informasi Sekolah</h2>
+            <div class="max-w-lg mx-auto bg-gray-50 shadow-md rounded-lg p-6 animate-slideUp">
+                <h3 class="text-2xl font-bold mb-4 text-blue-600">Hubungi Kami</h3>
+                <ul class="space-y-4 text-gray-700">
+                    <li>
+                        <strong>Alamat:</strong>
+                        <p>Jl. Modern School No. 45, Jakarta, Indonesia</p>
+                    </li>
+                    <li>
+                        <strong>Nomor Telepon:</strong>
+                        <p>+62 812 3456 7890</p>
+                    </li>
+                    <li>
+                        <strong>Email:</strong>
+                        <p>info@modernschool.ac.id</p>
+                    </li>
+                    <li>
+                        <strong>Ikuti Kami:</strong>
+                        <div class="flex space-x-4 mt-2">
+                            <a href="https://facebook.com/modernschool" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-300">Facebook</a>
+                            <a href="https://twitter.com/modernschool" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-300">Twitter</a>
+                            <a href="https://instagram.com/modernschool" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-300">Instagram</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Footer -->
+<footer class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+        <p id="footer-text">&copy; 2024 Modern School. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

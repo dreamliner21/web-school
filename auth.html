@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register - Modern School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .auth-form {
+            display: none;
+        }
+        .auth-form.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-700 via-indigo-600 to-blue-500 min-h-screen flex items-center justify-center">
+
+    <!-- Authentication Container -->
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 duration-300">
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form active px-8 py-6">
+            <h2 class="text-3xl font-extrabold text-center text-indigo-600 mb-6">Welcome Back</h2>
+            <div class="mb-5">
+                <label for="login-email" class="block text-sm font-semibold text-gray-600">Email</label>
+                <input type="email" id="login-email" placeholder="Enter your email" class="mt-2 block w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+            </div>
+            <div class="mb-5 relative">
+                <label for="login-password" class="block text-sm font-semibold text-gray-600">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password" class="mt-2 block w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+                <button type="button" id="toggle-login-password" class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3a7 7 0 00-7 7 7 7 0 1014 0 7 7 0 00-7-7zM2 10c0-1.46.53-2.9 1.51-4.01a10.12 10.12 0 013.59-2.65 7.07 7.07 0 011.66-.63A8 8 0 0110 2c.7 0 1.4.08 2.08.23a7.06 7.06 0 011.66.63 10.1 10.1 0 013.6 2.65A7.03 7.03 0 0118 10c0 1.46-.53 2.9-1.51 4.01a10.12 10.12 0 01-3.59 2.65 7.07 7.07 0 01-1.66.63A8 8 0 0110 18c-.7 0-1.4-.08-2.08-.23a7.06 7.06 0 01-1.66-.63A10.1 10.1 0 012.51 14 7.03 7.03 0 012 10z" />
+                    </svg>
+                </button>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition duration-300">Login</button>
+            <p class="text-sm text-center text-gray-500 mt-4">Don't have an account? 
+                <a href="#" id="show-register" class="text-indigo-600 font-semibold hover:underline">Register</a>
+            </p>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form px-8 py-6">
+            <h2 class="text-3xl font-extrabold text-center text-indigo-600 mb-6">Create Account</h2>
+            <div class="mb-5">
+                <label for="register-name" class="block text-sm font-semibold text-gray-600">Full Name</label>
+                <input type="text" id="register-name" placeholder="Enter your full name" class="mt-2 block w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+            </div>
+            <div class="mb-5">
+                <label for="register-email" class="block text-sm font-semibold text-gray-600">Email</label>
+                <input type="email" id="register-email" placeholder="Enter your email" class="mt-2 block w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+            </div>
+            <div class="mb-5 relative">
+                <label for="register-password" class="block text-sm font-semibold text-gray-600">Password</label>
+                <input type="password" id="register-password" placeholder="Create a password" class="mt-2 block w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+                <button type="button" id="toggle-register-password" class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-indigo-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3a7 7 0 00-7 7 7 7 0 1014 0 7 7 0 00-7-7zM2 10c0-1.46.53-2.9 1.51-4.01a10.12 10.12 0 013.59-2.65 7.07 7.07 0 011.66-.63A8 8 0 0110 2c.7 0 1.4.08 2.08.23a7.06 7.06 0 011.66.63 10.1 10.1 0 013.6 2.65A7.03 7.03 0 0118 10c0 1.46-.53 2.9-1.51 4.01a10.12 10.12 0 01-3.59 2.65 7.07 7.07 0 01-1.66.63A8 8 0 0110 18c-.7 0-1.4-.08-2.08-.23a7.06 7.06 0 01-1.66-.63A10.1 10.1 0 012.51 14 7.03 7.03 0 012 10z" />
+                    </svg>
+                </button>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition duration-300">Register</button>
+            <p class="text-sm text-center text-gray-500 mt-4">Already have an account? 
+                <a href="#" id="show-login" class="text-indigo-600 font-semibold hover:underline">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const showLogin = document.getElementById('show-login');
+            const showRegister = document.getElementById('show-register');
+
+            // Switch Forms
+            showRegister.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+            });
+
+            showLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+            });
+
+            // Toggle Password Visibility
+            const togglePasswordVisibility = (inputId, toggleId) => {
+                const input = document.getElementById(inputId);
+                const toggle = document.getElementById(toggleId);
+
+                toggle.addEventListener('click', () => {
+                    const isPassword = input.type === 'password';
+                    input.type = isPassword ? 'text' : 'password';
+                    toggle.classList.toggle('text-indigo-600', isPassword);
+                    toggle.classList.toggle('text-gray-500', !isPassword);
+                });
+            };
+
+            // Simpan status login di localStorage
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                localStorage.setItem('isLoggedIn', true); // Simpan status login
+                window.location.href = "index.html";
+            });
+
+            togglePasswordVisibility('login-password', 'toggle-login-password');
+            togglePasswordVisibility('register-password', 'toggle-register-password');
+        });
+    </script>
+</body>
+</html>
