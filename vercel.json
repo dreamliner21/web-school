@@ -1,24 +1,16 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "auth",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/",
-        "dest": "/index"
-      },
-      {
-        "src": "/auth",
-        "dest": "/auth"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "name": "testimonials-with-animations",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
